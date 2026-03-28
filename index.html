@@ -47,6 +47,19 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     }
 
     /* TEXTO GENERAL JUSTIFICADO */
@@ -151,6 +164,70 @@
       background: #000;
       font-size: 0.8em;
     }
+     #lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+  /* MENÚ PRINCIPAL */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background: #222;
+  padding: 15px;
+}
+
+/* cada bloque del menú */
+.menu-item {
+  position: relative;
+  cursor: pointer;
+}
+
+/* texto principal */
+.menu-item span {
+  color: white;
+  font-size: 18px;
+}
+
+/* submenú oculto */
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  padding: 10px;
+  min-width: 180px;
+  text-align: center;
+}
+
+/* links del submenú */
+.submenu a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+  font-size: 15px;
+}
+
+/* efecto hover */
+.menu-item:hover .submenu {
+  display: block;
+}
+
   </style>
 </head>
 
@@ -162,47 +239,98 @@
 </header>
 
 <nav>
-  <a href="#apachecoa">ApachecoA</a>
-  <a href="#saa-colaborativo">Sa´a Colaborativo</a>
-  <a href="#textos">Textos</a>
-  <a href="#obra">Obra</a>
-  <a href="#fogonradio">Fogón Radio</a>
-  <a href="#contacto">Contacto</a>
+
+  <div class="menu-item">
+    <span>ApachecoA</span>
+    <div class="submenu">
+      <a href="#" onclick="mostrarSeccion('semblanza')">Semblanza</a>
+      <a href="#" onclick="mostrarSeccion('enunciado')">Enunciado de artista</a>
+    </div>
+  </div>
+
+  <div class="menu-item">
+    <span>Sa´a Colaborativo</span>
+    <div class="submenu">
+      <a href="#" onclick="mostrarSeccion('Sa´aColaborativo')">Presentación</a>
+    </div>
+  </div>
+
+ <div class="menu-item">
+  <span>Obra</span>
+  <div class="submenu">
+    <a href="#" onclick="mostrarSeccion('pinturas')">
+      Pinturas platónicas
+    </a>
+
+    <a href="#" onclick="mostrarSeccion('meditaciones')">
+      Meditaciones obreras
+    </a>
+  </div>
+</div>
+  <div class="menu-item">
+    <span>Textos</span>
+    <div class="submenu">
+     <a onclick="mostrarSeccion('textos')">Ensayos</a>
+      <a onclick="mostrarSeccion('textos')">Artículos de opinión</a>
+      <a onclick="mostrarSeccion('textos')">Crítica de Arte</a>
+      <a onclick="mostrarSeccion('textos')">Poemas</a>
+      <a onclick="mostrarSeccion('textos')">Libros en PDF</a>
+    </div>
+  </div>
+
+  <!-- 👇 NUEVO -->
+  <div class="menu-item">
+    <span>Fogón Radio</span>
+    <div class="submenu">
+      <a>Programas</a>
+    </div>
+  </div>
+
+  <!-- 👇 OPCIONAL -->
+  <div class="menu-item">
+    <span>Contacto</span>
+    <div class="submenu">
+      <a>Información</a>
+    </div>
+  </div>
+
 </nav>
 
-<!-- ================= APACHECOA ================= -->
-<section id="apachecoa">
-  <h2>ApachecoA</h2>
+<section id="inicio">
+  <h2>Bienvenida</h2>
+  <p>Espacio de experimentación teórica y artística para el buen vivir.</p>
+</section>
 
-  <div class="subsection">
-    <h3>Semblanza</h3>
+<!-- ================= APACHECOA ================= -->
+  <section id="semblanza" style="display:none;">
+  <h2>Semblanza</h2>
 
     <p>Iztapalapeño. Soy un artista contemporáneo activo desde 2018. Mi trabajo artístico y teórico está guiado por principios como la lentitud, la colaboración desinteresada, la coherencia y el repudio al capitalismo. Mi formación comenzó en el programa avanzado de artes plásticas impartido por la A.P College Board en Estados Unidos en 2016; aunque a veces pienso que mis influencias se remontan a las conversaciones que sostuve con mi familia en mi infancia y adolescencia. Posteriormente, concluí la carrera de Estudios e Historia del Arte en la Universidad del Claustro de Sor Juana y he complementado mis saberes en el Centro Conservación, el Centro de la Imagen y platicando con mis compañeros proletarios.
-</p>
+    </p>
     <p>Desde mis exploraciones artísticas he trabajado, hasta el momento, performance, videoperformance, fotoperformance, escultura, pintura y poesía; los productos y eventos provocados por esas aventuras están estrechamente ligados con los temas de mi investigación teórica, la cual está dirigida a la fotografía, la modernidad y el eurocentrismo. La asociación de las cuestiones académicas y prácticas se logra siguiendo la tradición dialéctica de tal manera que, a pesar de pensar la fotografía como una herramienta ideológica que sirve para consolidar los sistemas de opresión vigentes, también se puede considerar que sus propias cualidades la pueden transformar en un dispositivo de liberación.
-</p>
+    </p>
     <p>Soy cofundadorx y miembro activo de Sa´a Colaborativo. De manera individual he presentado obras en Estados Unidos, Grecia, y la Ciudad de México (CDMX). Actualmente me desempeño como diablero en la viga y central de abastos de la CDMX, docente y radiolocutor independiente.
-</p>
+    </p>
+  </section>
+  
 
-  </div>
+  <section id="enunciado" style="display:none;">
+  <h2>Enunciado de artista</h2>
 
-  <div class="subsection">
-    <h3>Enunciado de artista</h3>
-
-    <p>Mi horizonte es la anarquía y la revolución mi brújula. Todo ejercicio humano debe contribuir a la mejora de la vida colectiva, ya sea el arte, la academia o el trabajo asalariado debe estar enfocado en el bienestar comunitario. Aunque cada quien tiene su modo de experimentar estos imperativos todas nos encontramos en ese deseo de cuidar a la comunidad. Mi andar hacia ese mañana libre siempre tiene presente los principios Zapatista o Neo-Zapatistas, por ello, no busco imponer ningún tipo de pensamiento, sino ser parte de un rizoma de quehaceres que no claudican, no se venden, no renuncian. 
-</p>
-    <p>Sin esperar a que llegue el mañana para llevar a cabo este estilo de vida, cada día, cada práctica, cada vínculo, lo enfoco en transformar las condiciones de vida para que cuando el sol salga en el mundo anárquico, mi andar ya haya aplanado el terreno para que la sociedad disfrute ese nuevo panorama. En ese marco realizo toda mi práctica artística: inicio pensando las condiciones materiales que me determinan, luego las critico y finalmente, si mi capacidad mental y física me lo permite propongo y ejerzo una alternativa. Para todo este proceso el arte es fundamental, es caldo de cultivo de alternativas, la movilidad mental que permite la poesía concede la posibilidad de sobrepasar los limites que el sistema impone. 
-</p>
+    <p>Mi horizonte es la anarquía y la revolución mi brújula. Todo ejercicio humano debe contribuir a la mejora de la vida colectiva, ya sea el arte, la academia o el trabajo asalariado debe estar enfocado en el bienestar comunitario. Aunque cada quien tiene su modo de experimentar estos imperativos todas nos encontramos en ese deseo de cuidar a la comunidad. Mi andar hacia ese mañana libre siempre tiene presente los principios Zapatista o Neo-Zapatistas, por ello, no busco imponer ningún tipo de pensamiento, sino ser parte de un rizoma de quehaceres que no claudican, no se venden, no renuncian.
+    </p>
+    <p>Sin esperar a que llegue el mañana para llevar a cabo este estilo de vida, cada día, cada práctica, cada vínculo, lo enfoco en transformar las condiciones de vida para que cuando el sol salga en el mundo anárquico, mi andar ya haya aplanado el terreno para que la sociedad disfrute ese nuevo panorama. En ese marco realizo toda mi práctica artística: inicio pensando las condiciones materiales que me determinan, luego las critico y finalmente, si mi capacidad mental y física me lo permite propongo y ejerzo una alternativa. Para todo este proceso el arte es fundamental, es caldo de cultivo de alternativas, la movilidad mental que permite la poesía concede la posibilidad de sobrepasar los limites que el sistema impone.
+    </p>
     <p>El arte entonces, es una herramienta que nos da la oportunidad de descolocarnos de las condiciones materiales que el sistema impone, pero solo es eso, una herramienta, por su cuenta el arte no acaba con ningún regimen. En ocasiones es necesario bajar el pincel, la camara, el cincel, las pinturas para levantar los carteles, abrazar a nuestros compañeroas, lavar los trastes, cuidar a las infancias, o en su defecto, arrojar piedras hacia el techo de cristal que limita nuestro crecimiento.
-</p>
+    </p>
     <p>El arte es la herramienta que las comunidades tienen para forjar un mañana constituido por la dignidad, el amor y el descanso.
-</p>
+    </p>
+  </section>
 
-  </div>
 </section>
 
 <!-- ================= SAA COLABORATIVO ================= -->
-<section id="saa-colaborativo">
+<section id="Sa´aColaborativo" style="display:none;">
   <h2>Sa´a Colaborativo</h2>
 
   <div class="subsection">
@@ -212,8 +340,7 @@
     </p>
 
     <p>
-      Sa’a Colaborativo es un encuentro de sensibilidades encarnado por corporalidades disidentes. Se comparte el interés por nuestro cuerpo, lo que viste, su educación y las posibilidades siempre pensadas desde la dignidad. 
-Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocamos a diferentes anatomías para ejercer la plática y la escucha con la humildad que ambas requieren. Nuestras investigaciones tienen perspectiva materialista, indígena, anarquista y de inconformidad con el género. 
+      Sa’a Colaborativo es un encuentro de sensibilidades encarnado por corporalidades disidentes. Se comparte el interés por nuestro cuerpo, lo que viste, su educación y las posibilidades siempre pensadas desde la dignidad. Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocamos a diferentes anatomías para ejercer la plática y la escucha con la humildad que ambas requieren. Nuestras investigaciones tienen perspectiva materialista, indígena, anarquista y de inconformidad con el género.
     </p>
 
     <p>
@@ -228,17 +355,42 @@ Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocam
 </section>
 
 <!-- ================= TEXTOS ================= -->
-<section id="textos">
+<section id="textos" style="display:none;">
   <h2>Textos</h2>
   <p>Aquí puedes escribir tus poemas, ideas o ensayos.</p>
 </section>
 
 <!-- ================= OBRA ================= -->
-<section id="obra">
-  <h2>Obra</h2>
+<section id="pinturas" style="display:none;">
+  <h2>Pinturas platónicas</h2>
+
+  <div class="proyecto">
+    <p>
+      Serie de FotoPerformance realizado en el 2018 inspirado en los pensamientos de Platón.
+    </p>
+
+    <div class="gallery">
+      <img src="pinturas-platonicas/pintura1.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura2.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura3.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura4.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura5.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura6.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura7.jpg" onclick="abrirImagen(this.src)">
+    </div>
+
+    <p>
+      <a href="pinturas-platonicas/pinturas-platonicas.pdf" target="_blank">
+        Pinturas Platónicas (PDF)
+      </a>
+    </p>
+  </div>
+</section>
+
+  <section id="meditaciones" style="display:none;">
+  <h2>Meditaciones obreras</h2>
 
   <div class="gallery">
-
     <div class="video-item">
       <a href="https://youtu.be/AfTw2jK3Qak" target="_blank">
         <div class="video-container">
@@ -248,20 +400,19 @@ Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocam
           </div>
         </div>
       </a>
-      <p>Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"</p>
+      <p>Meditaciones obreras</p>
     </div>
-
   </div>
 </section>
 
 <!-- ================= FOGON RADIO ================= -->
-<section id="fogonradio">
+<section id="fogonradio" style="display:none;">
   <h2>Fogón Radio</h2>
   <p>Espacio de transmisión sonora / radio.</p>
 </section>
 
 <!-- ================= CONTACTO ================= -->
-<section id="contacto">
+<section id="contacto" style="display:none;">
   <h2>Contacto</h2>
   <p>Email: saacolaborativo@gmail.com</p>
   <p>Instagram: @apache.coa</p>
@@ -272,6 +423,30 @@ Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocam
 <footer>
   <p>© 2026 ApachecoA CDMX</p>
 </footer>
+<div id="lightbox" onclick="cerrarImagen()">
+  <img id="imagen-grande">
+</div>
+
+<script>
+function abrirImagen(src) {
+  document.getElementById("lightbox").style.display = "flex";
+  document.getElementById("imagen-grande").src = src;
+}
+
+function cerrarImagen() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function mostrarSeccion(id) {
+  const secciones = document.querySelectorAll("section");
+
+  secciones.forEach(function(sec) {
+    sec.style.display = "none";
+  });
+
+  document.getElementById(id).style.display = "block";
+}
+</script>
 
 </body>
 </html>
