@@ -20,22 +20,21 @@
       height: 100vh;
       display: flex;
       flex-direction: column;
+      background: #000;
     }
 
     header {
       text-align: center;
-      padding: 0;
-      background: #000;
-      position: relative;
-      flex: 1;
-      min-height: 0;
+      padding: 20px;
     }
 
     .carrusel {
       position: relative;
       width: 100%;
-      height: 100%;
-      margin: 0;
+      max-width: 700px;
+      margin: 10px auto;
+      flex: 1;
+      min-height: 0;
       overflow: hidden;
     }
 
@@ -53,15 +52,6 @@
 
     .carrusel img.activa {
       opacity: 1;
-    }
-
-    .texto-portada {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
     }
 
     h1 {
@@ -231,15 +221,14 @@
 
 <div class="pantalla-inicio">
 <header>
-  <div class="carrusel">
-    <img src="Portada/portada1.jpg" class="activa" alt="Portada 1">
-    <img src="Portada/portada2.png" alt="Portada 2">
-    <div class="texto-portada">
-      <h1>ApachecoA</h1>
-      <p1>Espacio de experimentación teórica y artística para el buen vivir</p1>
-    </div>
-  </div>
+  <h1>ApachecoA</h1>
+  <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
 </header>
+
+<div class="carrusel">
+  <img src="Portada/portada1.jpg" class="activa" alt="Portada 1">
+  <img src="Portada/portada2.png" alt="Portada 2">
+</div>
 
 <nav>
   <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
