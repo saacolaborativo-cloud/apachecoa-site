@@ -371,6 +371,64 @@
     footer {
       display: none;
     }
+
+    /* LIGHTBOX */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.95);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox.abierto {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85vh;
+      object-fit: contain;
+    }
+
+    .lightbox-cerrar {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      color: white;
+      cursor: pointer;
+      z-index: 101;
+    }
+
+    .lightbox-flecha {
+      position: fixed;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2.5em;
+      color: white;
+      cursor: pointer;
+      z-index: 101;
+      user-select: none;
+      padding: 10px 15px;
+    }
+
+    .lightbox-anterior {
+      left: 10px;
+    }
+
+    .lightbox-siguiente {
+      right: 10px;
+    }
+
+    .gallery img {
+      cursor: pointer;
+    }
   </style>
 </head>
 
@@ -769,8 +827,19 @@
   <div class="subsection" id="pinturas-platonicas">
     <h3>Pinturas platónicas</h3>
     <div class="gallery">
-      <p>Próximamente.</p>
+      <img src="comprimidas/pintura1.jpg" alt="Pinturas platónicas 1" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 0)">
+      <img src="comprimidas/pintura2.jpg" alt="Pinturas platónicas 2" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 1)">
+      <img src="comprimidas/pintura3.jpg" alt="Pinturas platónicas 3" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 2)">
+      <img src="comprimidas/pintura4.jpg" alt="Pinturas platónicas 4" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 3)">
+      <img src="comprimidas/pintura5.jpg" alt="Pinturas platónicas 5" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 4)">
+      <img src="comprimidas/pintura6.jpg" alt="Pinturas platónicas 6" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 5)">
+      <img src="comprimidas/pintura7.jpg" alt="Pinturas platónicas 7" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 6)">
     </div>
+    <p style="text-align:center; margin-top:16px;">
+      <a href="comprimidas/pinturas-platonicas.pdf" target="_blank" style="color:#ddd; text-decoration:underline;">
+        Sobre la obra
+      </a>
+    </p>
   </div>
 
   <div class="subsection" id="bailar-es-resistir">
@@ -968,7 +1037,47 @@
   <p>© 2026 ApachecoA CDMX</p>
 </footer>
 
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-cerrar" onclick="cerrarLightbox()">&times;</span>
+  <span class="lightbox-flecha lightbox-anterior" onclick="lightboxAnterior()">&#10094;</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="lightbox-flecha lightbox-siguiente" onclick="lightboxSiguiente()">&#10095;</span>
+</div>
+
   <script>
+    var pinturasPlatonicas = [
+      'comprimidas/pintura1.jpg',
+      'comprimidas/pintura2.jpg',
+      'comprimidas/pintura3.jpg',
+      'comprimidas/pintura4.jpg',
+      'comprimidas/pintura5.jpg',
+      'comprimidas/pintura6.jpg',
+      'comprimidas/pintura7.jpg'
+    ];
+
+    var lightboxImagenes = [];
+    var lightboxIndice = 0;
+
+    function abrirLightbox(imagenes, indice) {
+      lightboxImagenes = imagenes;
+      lightboxIndice = indice;
+      document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndice];
+      document.getElementById('lightbox').classList.add('abierto');
+    }
+
+    function cerrarLightbox() {
+      document.getElementById('lightbox').classList.remove('abierto');
+    }
+
+    function lightboxAnterior() {
+      lightboxIndice = (lightboxIndice - 1 + lightboxImagenes.length) % lightboxImagenes.length;
+      document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndice];
+    }
+
+    function lightboxSiguiente() {
+      lightboxIndice = (lightboxIndice + 1) % lightboxImagenes.length;
+      document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndice];
+    }
     function abrirSeccion(id, subId) {
       var section = document.getElementById(id);
       section.classList.add('abierta');
