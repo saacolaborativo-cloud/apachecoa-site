@@ -1,170 +1,202 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Mi Portafolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ApachecoA: obra, textos, ensayos y proyectos colaborativos, enfocado en prácticas artísticas críticas, comunitarias y experimentales.">
+<title>ApachecoA · Portafolio</title>
 
-  <!-- FUENTE -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+<!-- FUENTE -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cormorant Garamond', serif;
-      background: #111;
-      color: #fff;
-    }
+<style>
+  body {
+    margin: 0;
+    font-family: 'Cormorant Garamond', serif;
+    background: #111;
+    color: #fff;
+  }
 
-    header {
-      text-align: center;
-      padding: 50px 20px;
-      background: #000;
-    }
+  header {
+    text-align: center;
+    padding: 50px 20px;
+    background: #000;
+  }
 
-    h1 {
-      margin: 0;
-      font-size: 5em;
-    }
+  h1 {
+    margin: 0;
+    font-size: 5em;
+  }
 
-    p1 {
-      margin: 0;
-      font-size: 1.5em;
-    }
+  .subtitle {
+    margin: 0;
+    font-size: 1.5em;
+  }
 
-    nav {
-      text-align: center;
-      padding: 10px;
-      background: #222;
-    }
+  /* MENÚ PRINCIPAL */
+  nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    background: #222;
+    padding: 15px;
+    text-align: center;
+  }
 
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-    }
+  .menu-item {
+    position: relative;
+    cursor: pointer;
+  }
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-      .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 20px;
-    }
+  .menu-item span {
+    color: white;
+    font-size: 18px;
+  }
 
-    .gallery img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+  .submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    padding: 10px;
+    min-width: 180px;
+    text-align: center;
+    z-index: 10;
+  }
 
-    }
+  .submenu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 15px;
+    cursor: pointer;
+  }
 
-    /* TEXTO GENERAL JUSTIFICADO */
-    .subsection p {
-      text-align: justify;
-      line-height: 1.7;
-      font-size: 17px;
-      margin-bottom: 12px;
-    }
+  .menu-item:hover .submenu {
+    display: block;
+  }
 
-    /* =========================
-       APACHECOA (ESTILO BASE)
-    ========================== */
-    #apachecoa {
-      background: #111;
-    }
+  section {
+    padding: 40px 20px;
+    max-width: 900px;
+    margin: auto;
+  }
 
-    #apachecoa h2 {
-      border-bottom: 1px solid #444;
-      padding-bottom: 10px;
-    }
+  /* TEXTO GENERAL JUSTIFICADO */
+  .subsection p {
+    text-align: justify;
+    line-height: 1.7;
+    font-size: 17px;
+    margin-bottom: 12px;
+  }
 
-    /* =========================
-       SAA COLABORATIVO (VARIANTE)
-    ========================== */
-    #saa-colaborativo {
-      background: #0d0d0d;
-      border-top: 1px solid #333;
-    }
+  /* =========================
+     APACHECOA (ESTILO BASE)
+  ========================== */
+  #apachecoa {
+    background: #111;
+  }
 
-    #saa-colaborativo h2 {
-      color: #ccc;
-      border-bottom: 1px solid #666;
-      padding-bottom: 10px;
-    }
+  #apachecoa h2 {
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+  }
 
-    #saa-colaborativo .subsection p {
-      font-size: 17px;
-      line-height: 1.8;
-    }
+  /* =========================
+     SAA COLABORATIVO (VARIANTE)
+  ========================== */
+  #saa-colaborativo {
+    background: #0d0d0d;
+    border-top: 1px solid #333;
+  }
 
-    /* GALERÍA */
-    .gallery {
-      max-width: 700px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
+  #saa-colaborativo h2 {
+    color: #ccc;
+    border-bottom: 1px solid #666;
+    padding-bottom: 10px;
+  }
 
-    .video-item {
-      max-width: 300px;
-      margin: auto;
-      text-align: center;
-      font-size: 15px;
-    }
+  #saa-colaborativo .subsection p {
+    font-size: 17px;
+    line-height: 1.8;
+  }
 
-    .video-container {
-      position: relative;
-    }
+  /* GALERÍA */
+  .gallery {
+    max-width: 700px;
+    margin: 20px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
 
-    .video-container img {
-      width: 100%;
-      display: block;
-      transition: 0.3s;
-    }
+  .gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+  }
 
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.6);
-      color: white;
-      opacity: 0;
-      transition: 0.3s;
-      text-align: center;
-      padding: 10px;
-    }
+  .video-item {
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-size: 15px;
+  }
 
-    .video-container:hover img {
-      filter: brightness(50%);
-    }
+  .video-container {
+    position: relative;
+  }
 
-    .video-container:hover .overlay {
-      opacity: 1;
-    }
+  .video-container img {
+    width: 100%;
+    display: block;
+    transition: 0.3s;
+  }
 
-    .video-item p {
-      margin-top: 10px;
-      text-align: justify;
-      font-size: 15px;
-    }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    opacity: 0;
+    transition: 0.3s;
+    text-align: center;
+    padding: 10px;
+  }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      font-size: 0.8em;
-    }
-     #lightbox {
+  .video-container:hover img {
+    filter: brightness(50%);
+  }
+
+  .video-container:hover .overlay {
+    opacity: 1;
+  }
+
+  .video-item p {
+    margin-top: 10px;
+    text-align: justify;
+    font-size: 15px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: #000;
+    font-size: 0.8em;
+  }
+
+  #lightbox {
     position: fixed;
     top: 0;
     left: 0;
@@ -174,103 +206,50 @@
     display: none;
     align-items: center;
     justify-content: center;
+    z-index: 100;
   }
 
   #lightbox img {
     max-width: 90%;
     max-height: 90%;
   }
-  /* MENÚ PRINCIPAL */
-nav {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  background: #222;
-  padding: 15px;
-}
-
-/* cada bloque del menú */
-.menu-item {
-  position: relative;
-  cursor: pointer;
-}
-
-/* texto principal */
-.menu-item span {
-  color: white;
-  font-size: 18px;
-}
-
-/* submenú oculto */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #333;
-  padding: 10px;
-  min-width: 180px;
-  text-align: center;
-}
-
-/* links del submenú */
-.submenu a {
-  display: block;
-  color: white;
-  text-decoration: none;
-  margin: 5px 0;
-  font-size: 15px;
-}
-
-/* efecto hover */
-.menu-item:hover .submenu {
-  display: block;
-}
-
-  </style>
+</style>
 </head>
-
 <body>
 
 <header>
   <h1>ApachecoA</h1>
-  <p1>Espacio de experimentación teórica y artística para el buen vivir</p1>
+  <p class="subtitle">Espacio de experimentación teórica y artística para el buen vivir</p>
 </header>
 
 <nav>
-
   <div class="menu-item">
     <span>ApachecoA</span>
     <div class="submenu">
-      <a href="#" onclick="mostrarSeccion('semblanza')">Semblanza</a>
-      <a href="#" onclick="mostrarSeccion('enunciado')">Enunciado de artista</a>
+      <a onclick="mostrarSeccion('semblanza')">Semblanza</a>
+      <a onclick="mostrarSeccion('enunciado')">Enunciado de artista</a>
     </div>
   </div>
 
   <div class="menu-item">
-    <span>Sa´a Colaborativo</span>
+    <span>Sa'a Colaborativo</span>
     <div class="submenu">
-      <a href="#" onclick="mostrarSeccion('Sa´aColaborativo')">Presentación</a>
+      <a onclick="mostrarSeccion('saa-colaborativo')">Presentación</a>
     </div>
   </div>
 
- <div class="menu-item">
-  <span>Obra</span>
-  <div class="submenu">
-    <a href="#" onclick="mostrarSeccion('pinturas')">
-      Pinturas platónicas
-    </a>
-
-    <a href="#" onclick="mostrarSeccion('meditaciones')">
-      Meditaciones obreras
-    </a>
+  <div class="menu-item">
+    <span>Obra</span>
+    <div class="submenu">
+      <a onclick="mostrarSeccion('pinturas')">Pinturas platónicas</a>
+      <a onclick="mostrarSeccion('meditaciones')">Meditaciones obreras</a>
+    </div>
   </div>
-</div>
+
   <div class="menu-item">
     <span>Textos</span>
     <div class="submenu">
-     <a onclick="mostrarSeccion('textos')">Ensayos</a>
+      <a onclick="mostrarSeccion('textos')">Ensayos</a>
       <a onclick="mostrarSeccion('textos')">Artículos de opinión</a>
       <a onclick="mostrarSeccion('textos')">Crítica de Arte</a>
       <a onclick="mostrarSeccion('textos')">Poemas</a>
@@ -278,22 +257,19 @@ nav {
     </div>
   </div>
 
-  <!-- 👇 NUEVO -->
   <div class="menu-item">
     <span>Fogón Radio</span>
     <div class="submenu">
-      <a>Programas</a>
+      <a onclick="mostrarSeccion('fogonradio')">Programas</a>
     </div>
   </div>
 
-  <!-- 👇 OPCIONAL -->
   <div class="menu-item">
     <span>Contacto</span>
     <div class="submenu">
-      <a>Información</a>
+      <a onclick="mostrarSeccion('contacto')">Información</a>
     </div>
   </div>
-
 </nav>
 
 <section id="inicio">
@@ -302,55 +278,31 @@ nav {
 </section>
 
 <!-- ================= APACHECOA ================= -->
+<section id="apachecoa">
   <section id="semblanza" style="display:none;">
-  <h2>Semblanza</h2>
-
-    <p>Iztapalapeño. Soy un artista contemporáneo activo desde 2018. Mi trabajo artístico y teórico está guiado por principios como la lentitud, la colaboración desinteresada, la coherencia y el repudio al capitalismo. Mi formación comenzó en el programa avanzado de artes plásticas impartido por la A.P College Board en Estados Unidos en 2016; aunque a veces pienso que mis influencias se remontan a las conversaciones que sostuve con mi familia en mi infancia y adolescencia. Posteriormente, concluí la carrera de Estudios e Historia del Arte en la Universidad del Claustro de Sor Juana y he complementado mis saberes en el Centro Conservación, el Centro de la Imagen y platicando con mis compañeros proletarios.
-    </p>
-    <p>Desde mis exploraciones artísticas he trabajado, hasta el momento, performance, videoperformance, fotoperformance, escultura, pintura y poesía; los productos y eventos provocados por esas aventuras están estrechamente ligados con los temas de mi investigación teórica, la cual está dirigida a la fotografía, la modernidad y el eurocentrismo. La asociación de las cuestiones académicas y prácticas se logra siguiendo la tradición dialéctica de tal manera que, a pesar de pensar la fotografía como una herramienta ideológica que sirve para consolidar los sistemas de opresión vigentes, también se puede considerar que sus propias cualidades la pueden transformar en un dispositivo de liberación.
-    </p>
-    <p>Soy cofundadorx y miembro activo de Sa´a Colaborativo. De manera individual he presentado obras en Estados Unidos, Grecia, y la Ciudad de México (CDMX). Actualmente me desempeño como diablero en la viga y central de abastos de la CDMX, docente y radiolocutor independiente.
-    </p>
+    <h2>Semblanza</h2>
+    <p>Iztapalapeño. Soy un artista contemporáneo activo desde 2018. Mi trabajo artístico y teórico está guiado por principios como la lentitud, la colaboración desinteresada, la coherencia y el repudio al capitalismo. Mi formación comenzó en el programa avanzado de artes plásticas impartido por la A.P College Board en Estados Unidos en 2016; aunque a veces pienso que mis influencias se remontan a las conversaciones que sostuve con mi familia en mi infancia y adolescencia. Posteriormente, concluí la carrera de Estudios e Historia del Arte en la Universidad del Claustro de Sor Juana y he complementado mis saberes en el Centro Conservación, el Centro de la Imagen y platicando con mis compañeros proletarios.</p>
+    <p>Desde mis exploraciones artísticas he trabajado, hasta el momento, performance, videoperformance, fotoperformance, escultura, pintura y poesía; los productos y eventos provocados por esas aventuras están estrechamente ligados con los temas de mi investigación teórica, la cual está dirigida a la fotografía, la modernidad y el eurocentrismo. La asociación de las cuestiones académicas y prácticas se logra siguiendo la tradición dialéctica de tal manera que, a pesar de pensar la fotografía como una herramienta ideológica que sirve para consolidar los sistemas de opresión vigentes, también se puede considerar que sus propias cualidades la pueden transformar en un dispositivo de liberación.</p>
+    <p>Soy cofundadorx y miembro activo de Sa'a Colaborativo. De manera individual he presentado obras en Estados Unidos, Grecia, y la Ciudad de México (CDMX). Actualmente me desempeño como diablero en la viga y central de abastos de la CDMX, docente y radiolocutor independiente.</p>
   </section>
-  
 
   <section id="enunciado" style="display:none;">
-  <h2>Enunciado de artista</h2>
-
-    <p>Mi horizonte es la anarquía y la revolución mi brújula. Todo ejercicio humano debe contribuir a la mejora de la vida colectiva, ya sea el arte, la academia o el trabajo asalariado debe estar enfocado en el bienestar comunitario. Aunque cada quien tiene su modo de experimentar estos imperativos todas nos encontramos en ese deseo de cuidar a la comunidad. Mi andar hacia ese mañana libre siempre tiene presente los principios Zapatista o Neo-Zapatistas, por ello, no busco imponer ningún tipo de pensamiento, sino ser parte de un rizoma de quehaceres que no claudican, no se venden, no renuncian.
-    </p>
-    <p>Sin esperar a que llegue el mañana para llevar a cabo este estilo de vida, cada día, cada práctica, cada vínculo, lo enfoco en transformar las condiciones de vida para que cuando el sol salga en el mundo anárquico, mi andar ya haya aplanado el terreno para que la sociedad disfrute ese nuevo panorama. En ese marco realizo toda mi práctica artística: inicio pensando las condiciones materiales que me determinan, luego las critico y finalmente, si mi capacidad mental y física me lo permite propongo y ejerzo una alternativa. Para todo este proceso el arte es fundamental, es caldo de cultivo de alternativas, la movilidad mental que permite la poesía concede la posibilidad de sobrepasar los limites que el sistema impone.
-    </p>
-    <p>El arte entonces, es una herramienta que nos da la oportunidad de descolocarnos de las condiciones materiales que el sistema impone, pero solo es eso, una herramienta, por su cuenta el arte no acaba con ningún regimen. En ocasiones es necesario bajar el pincel, la camara, el cincel, las pinturas para levantar los carteles, abrazar a nuestros compañeroas, lavar los trastes, cuidar a las infancias, o en su defecto, arrojar piedras hacia el techo de cristal que limita nuestro crecimiento.
-    </p>
-    <p>El arte es la herramienta que las comunidades tienen para forjar un mañana constituido por la dignidad, el amor y el descanso.
-    </p>
+    <h2>Enunciado de artista</h2>
+    <p>Mi horizonte es la anarquía y la revolución mi brújula. Todo ejercicio humano debe contribuir a la mejora de la vida colectiva, ya sea el arte, la academia o el trabajo asalariado debe estar enfocado en el bienestar comunitario. Aunque cada quien tiene su modo de experimentar estos imperativos todas nos encontramos en ese deseo de cuidar a la comunidad. Mi andar hacia ese mañana libre siempre tiene presente los principios Zapatista o Neo-Zapatistas, por ello, no busco imponer ningún tipo de pensamiento, sino ser parte de un rizoma de quehaceres que no claudican, no se venden, no renuncian.</p>
+    <p>Sin esperar a que llegue el mañana para llevar a cabo este estilo de vida, cada día, cada práctica, cada vínculo, lo enfoco en transformar las condiciones de vida para que cuando el sol salga en el mundo anárquico, mi andar ya haya aplanado el terreno para que la sociedad disfrute ese nuevo panorama. En ese marco realizo toda mi práctica artística: inicio pensando las condiciones materiales que me determinan, luego las critico y finalmente, si mi capacidad mental y física me lo permite propongo y ejerzo una alternativa. Para todo este proceso el arte es fundamental, es caldo de cultivo de alternativas, la movilidad mental que permite la poesía concede la posibilidad de sobrepasar los límites que el sistema impone.</p>
+    <p>El arte entonces, es una herramienta que nos da la oportunidad de descolocarnos de las condiciones materiales que el sistema impone, pero solo es eso, una herramienta, por su cuenta el arte no acaba con ningún régimen. En ocasiones es necesario bajar el pincel, la cámara, el cincel, las pinturas para levantar los carteles, abrazar a nuestros compañeroas, lavar los trastes, cuidar a las infancias, o en su defecto, arrojar piedras hacia el techo de cristal que limita nuestro crecimiento.</p>
+    <p>El arte es la herramienta que las comunidades tienen para forjar un mañana constituido por la dignidad, el amor y el descanso.</p>
   </section>
-
 </section>
 
 <!-- ================= SAA COLABORATIVO ================= -->
-<section id="Sa´aColaborativo" style="display:none;">
-  <h2>Sa´a Colaborativo</h2>
-
+<section id="saa-colaborativo" style="display:none;">
+  <h2>Sa'a Colaborativo</h2>
   <div class="subsection">
-
-    <p>
-      El estruendo que provocan dos nubes al chocar estremece las articulaciones de una estructura que se sabe endeble y contradictoria.
-    </p>
-
-    <p>
-      Sa’a Colaborativo es un encuentro de sensibilidades encarnado por corporalidades disidentes. Se comparte el interés por nuestro cuerpo, lo que viste, su educación y las posibilidades siempre pensadas desde la dignidad. Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocamos a diferentes anatomías para ejercer la plática y la escucha con la humildad que ambas requieren. Nuestras investigaciones tienen perspectiva materialista, indígena, anarquista y de inconformidad con el género.
-    </p>
-
-    <p>
-      Buscamos un lenguaje que evidencie nuestro origen donde el capital cultural no está. Los juegos de la infancia y La Hora Pico, los conciertos de Madonna y las piezas de Francis Alÿs, los textos de Kant y la cumbia que escuchamos en el transporte a la escuela: todo se teje en propuestas que nos interesa sean digeribles para nuestras madres.
-    </p>
-
-    <p>
-      Nos interesa acabar con el sistema de muerte que dirige nuestros tiempos. Sabemos que esa ambición es casi imposible pero eso no nos detiene y deseamos crear oasis y espacios que permitan tomar distancia de la inercia productiva y consumista. Un espacio-tiempo para descansar, reflexionar e imaginar un mañana. Nuestros procesos de creación son relativamente lentos pues se acoplan a cada vínculo generado con quienes colaboran. De esa manera, al concluir un proyecto no solo obtenemos una pieza, sino que también lanzamos un enunciado: la libertad devenida del trabajo colaborativo es posible.
-    </p>
-
+    <p>El estruendo que provocan dos nubes al chocar estremece las articulaciones de una estructura que se sabe endeble y contradictoria.</p>
+    <p>Sa'a Colaborativo es un encuentro de sensibilidades encarnado por corporalidades disidentes. Se comparte el interés por nuestro cuerpo, lo que viste, su educación y las posibilidades siempre pensadas desde la dignidad. Somos artistas e historiadores, creyentes de solo saber que no sabemos. Convocamos a diferentes anatomías para ejercer la plática y la escucha con la humildad que ambas requieren. Nuestras investigaciones tienen perspectiva materialista, indígena, anarquista y de inconformidad con el género.</p>
+    <p>Buscamos un lenguaje que evidencie nuestro origen donde el capital cultural no está. Los juegos de la infancia y La Hora Pico, los conciertos de Madonna y las piezas de Francis Alÿs, los textos de Kant y la cumbia que escuchamos en el transporte a la escuela: todo se teje en propuestas que nos interesa sean digeribles para nuestras madres.</p>
+    <p>Nos interesa acabar con el sistema de muerte que dirige nuestros tiempos. Sabemos que esa ambición es casi imposible pero eso no nos detiene y deseamos crear oasis y espacios que permitan tomar distancia de la inercia productiva y consumista. Un espacio-tiempo para descansar, reflexionar e imaginar un mañana. Nuestros procesos de creación son relativamente lentos pues se acoplan a cada vínculo generado con quienes colaboran. De esa manera, al concluir un proyecto no solo obtenemos una pieza, sino que también lanzamos un enunciado: la libertad devenida del trabajo colaborativo es posible.</p>
   </div>
 </section>
 
@@ -363,41 +315,31 @@ nav {
 <!-- ================= OBRA ================= -->
 <section id="pinturas" style="display:none;">
   <h2>Pinturas platónicas</h2>
-
   <div class="proyecto">
-    <p>
-      Serie de FotoPerformance realizado en el 2018 inspirado en los pensamientos de Platón.
-    </p>
-
+    <p>Serie de FotoPerformance realizado en el 2018 inspirado en los pensamientos de Platón.</p>
     <div class="gallery">
-      <img src="pinturas-platonicas/pintura1.jpg" onclick="abrirImagen(this.src)">
-      <img src="pinturas-platonicas/pintura2.jpg" onclick="abrirImagen(this.src)">
-      <img src="pinturas-platonicas/pintura3.jpg" onclick="abrirImagen(this.src)">
-      <img src="pinturas-platonicas/pintura4.jpg" onclick="abrirImagen(this.src)">
-      <img src="pinturas-platonicas/pintura5.jpg" onclick="abrirImagen(this.src)">
-      <img src="pinturas-platonicas/pintura6.jpg" onclick="abrirImagen(this.src)">
-      <img src="pinturas-platonicas/pintura7.jpg" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura1.jpg" alt="Pinturas platónicas 1" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura2.jpg" alt="Pinturas platónicas 2" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura3.jpg" alt="Pinturas platónicas 3" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura4.jpg" alt="Pinturas platónicas 4" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura5.jpg" alt="Pinturas platónicas 5" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura6.jpg" alt="Pinturas platónicas 6" onclick="abrirImagen(this.src)">
+      <img src="pinturas-platonicas/pintura7.jpg" alt="Pinturas platónicas 7" onclick="abrirImagen(this.src)">
     </div>
-
     <p>
-      <a href="pinturas-platonicas/pinturas-platonicas.pdf" target="_blank">
-        Pinturas Platónicas (PDF)
-      </a>
+      <a href="pinturas-platonicas/pinturas-platonicas.pdf" target="_blank">Pinturas Platónicas (PDF)</a>
     </p>
   </div>
 </section>
 
-  <section id="meditaciones" style="display:none;">
+<section id="meditaciones" style="display:none;">
   <h2>Meditaciones obreras</h2>
-
   <div class="gallery">
     <div class="video-item">
       <a href="https://youtu.be/AfTw2jK3Qak" target="_blank">
         <div class="video-container">
-          <img src="https://img.youtube.com/vi/AfTw2jK3Qak/0.jpg">
-          <div class="overlay">
-            Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"
-          </div>
+          <img src="https://img.youtube.com/vi/AfTw2jK3Qak/0.jpg" alt="Meditaciones obreras">
+          <div class="overlay">Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"</div>
         </div>
       </a>
       <p>Meditaciones obreras</p>
@@ -423,29 +365,28 @@ nav {
 <footer>
   <p>© 2026 ApachecoA CDMX</p>
 </footer>
+
 <div id="lightbox" onclick="cerrarImagen()">
-  <img id="imagen-grande">
+  <img id="imagen-grande" alt="Imagen ampliada">
 </div>
 
 <script>
-function abrirImagen(src) {
-  document.getElementById("lightbox").style.display = "flex";
-  document.getElementById("imagen-grande").src = src;
-}
+  function abrirImagen(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("imagen-grande").src = src;
+  }
 
-function cerrarImagen() {
-  document.getElementById("lightbox").style.display = "none";
-}
+  function cerrarImagen() {
+    document.getElementById("lightbox").style.display = "none";
+  }
 
-function mostrarSeccion(id) {
-  const secciones = document.querySelectorAll("section");
-
-  secciones.forEach(function(sec) {
-    sec.style.display = "none";
-  });
-
-  document.getElementById(id).style.display = "block";
-}
+  function mostrarSeccion(id) {
+    const secciones = document.querySelectorAll("section");
+    secciones.forEach(function(sec) {
+      sec.style.display = "none";
+    });
+    document.getElementById(id).style.display = "block";
+  }
 </script>
 
 </body>
