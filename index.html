@@ -13,6 +13,13 @@
       font-family: 'Cormorant Garamond', serif;
       background: #111;
       color: #fff;
+      overflow: hidden;
+    }
+
+    .pantalla-inicio {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
 
     header {
@@ -20,12 +27,14 @@
       padding: 0;
       background: #000;
       position: relative;
+      flex: 1;
+      min-height: 0;
     }
 
     .carrusel {
       position: relative;
       width: 100%;
-      height: 100vh;
+      height: 100%;
       margin: 0;
       overflow: hidden;
     }
@@ -84,7 +93,34 @@
     }
 
     section {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      overflow-y: auto;
+      background: #111;
       padding: 40px 20px;
+      box-sizing: border-box;
+      z-index: 10;
+    }
+
+    section.abierta {
+      display: block;
+    }
+
+    .cerrar {
+      position: fixed;
+      top: 15px;
+      right: 20px;
+      font-size: 2em;
+      color: white;
+      cursor: pointer;
+      z-index: 11;
+    }
+
+    .contenido-seccion {
       max-width: 900px;
       margin: auto;
     }
@@ -186,16 +222,14 @@
     }
 
     footer {
-      text-align: center;
-      padding: 20px;
-      background: #000;
-      font-size: 0.8em;
+      display: none;
     }
   </style>
 </head>
 
 <body>
 
+<div class="pantalla-inicio">
 <header>
   <div class="carrusel">
     <img src="Portada/portada1.jpg" class="activa" alt="Portada 1">
@@ -208,16 +242,19 @@
 </header>
 
 <nav>
-  <a href="#apachecoa">ApachecoA</a>
-  <a href="#saa-colaborativo">Sa´a Colaborativo</a>
-  <a href="#textos">Textos</a>
-  <a href="#obra">Obra</a>
-  <a href="#fogonradio">Fogón Radio</a>
-  <a href="#contacto">Contacto</a>
+  <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+  <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+  <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+  <a href="#" onclick="abrirSeccion('obra'); return false;">Obra</a>
+  <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
 </nav>
+</div>
 
 <!-- ================= APACHECOA ================= -->
 <section id="apachecoa">
+  <span class="cerrar" onclick="cerrarSeccion()">&times;</span>
+  <div class="contenido-seccion">
   <h2>ApachecoA</h2>
 
   <div class="subsection">
@@ -245,10 +282,13 @@
     </p>
 
   </div>
+  </div>
 </section>
 
 <!-- ================= SAA COLABORATIVO ================= -->
 <section id="saa-colaborativo">
+  <span class="cerrar" onclick="cerrarSeccion()">&times;</span>
+  <div class="contenido-seccion">
   <h2>Sa´a Colaborativo</h2>
 
   <div class="subsection">
@@ -270,16 +310,22 @@
     </p>
 
   </div>
+  </div>
 </section>
 
 <!-- ================= TEXTOS ================= -->
 <section id="textos">
+  <span class="cerrar" onclick="cerrarSeccion()">&times;</span>
+  <div class="contenido-seccion">
   <h2>Textos</h2>
   <p>Aquí puedes escribir tus poemas, ideas o ensayos.</p>
+  </div>
 </section>
 
 <!-- ================= OBRA ================= -->
 <section id="obra">
+  <span class="cerrar" onclick="cerrarSeccion()">&times;</span>
+  <div class="contenido-seccion">
   <h2>Obra</h2>
 
   <div class="gallery">
@@ -297,26 +343,45 @@
     </div>
 
   </div>
+  </div>
 </section>
 
 <!-- ================= FOGON RADIO ================= -->
 <section id="fogonradio">
+  <span class="cerrar" onclick="cerrarSeccion()">&times;</span>
+  <div class="contenido-seccion">
   <h2>Fogón Radio</h2>
   <p>Espacio de transmisión sonora / radio.</p>
+  </div>
 </section>
 
 <!-- ================= CONTACTO ================= -->
 <section id="contacto">
+  <span class="cerrar" onclick="cerrarSeccion()">&times;</span>
+  <div class="contenido-seccion">
   <h2>Contacto</h2>
   <p>Email: saacolaborativo@gmail.com</p>
   <p>Instagram: @apache.coa</p>
   <p>Facebook: ApachecoA arte y educación</p>
   <p>Teléfono: +52 1 55 1112 3609</p>
+  </div>
 </section>
 
 <footer>
   <p>© 2026 ApachecoA CDMX</p>
 </footer>
+
+  <script>
+    function abrirSeccion(id) {
+      document.getElementById(id).classList.add('abierta');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarSeccion() {
+      document.querySelectorAll('section.abierta').forEach(s => s.classList.remove('abierta'));
+      document.body.style.overflow = 'auto';
+    }
+  </script>
 
   <script>
     const imagenes = document.querySelectorAll('.carrusel img');
