@@ -42,7 +42,7 @@
     .carrusel {
       position: relative;
       width: 100%;
-      max-width: 100%;
+      max-width: 1200px;
       margin: 10px auto;
       flex: 1;
       min-height: 0;
@@ -127,6 +127,43 @@
     nav a:active {
       color: #fff;
       border-bottom-color: #b3261e;
+    }
+
+    .nav-item {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #000;
+      border: 1px solid #2a2a2a;
+      min-width: 180px;
+      z-index: 20;
+      padding: 6px 0;
+    }
+
+    .nav-item:hover .dropdown,
+    .nav-item:focus-within .dropdown {
+      display: block;
+    }
+
+    .dropdown a {
+      display: block;
+      font-size: 0.7em;
+      padding: 8px 15px;
+      white-space: nowrap;
+      border-bottom: none;
+    }
+
+    .dropdown a:hover {
+      background: #1a1a1a;
+      color: #fff;
+      border-bottom: none;
     }
 
     section {
@@ -332,11 +369,50 @@
 </div>
 
 <nav>
-  <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
-  <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
-  <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
-  <a href="#" onclick="abrirSeccion('obra'); return false;">Obra</a>
-  <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
 </nav>
 </div>
@@ -362,7 +438,7 @@
   <div class="contenido-seccion">
   <h2>ApachecoA</h2>
 
-  <div class="subsection">
+  <div class="subsection" id="semblanza">
     <h3>Semblanza</h3>
 
     <p>Iztapalapeño. Soy un artista contemporáneo activo desde 2018. Mi trabajo artístico y teórico está guiado por principios como la lentitud, la colaboración desinteresada, la coherencia y el repudio al capitalismo. Mi formación comenzó en el programa avanzado de artes plásticas impartido por la A.P College Board en Estados Unidos en 2016; aunque a veces pienso que mis influencias se remontan a las conversaciones que sostuve con mi familia en mi infancia y adolescencia. Posteriormente, concluí la carrera de Estudios e Historia del Arte en la Universidad del Claustro de Sor Juana y he complementado mis saberes en el Centro Conservación, el Centro de la Imagen y platicando con mis compañeros proletarios.
@@ -374,7 +450,7 @@
 
   </div>
 
-  <div class="subsection">
+  <div class="subsection" id="enunciado">
     <h3>Enunciado de artista</h3>
 
     <p>Mi horizonte es la anarquía y la revolución mi brújula. Todo ejercicio humano debe contribuir a la mejora de la vida colectiva, ya sea el arte, la academia o el trabajo asalariado debe estar enfocado en el bienestar comunitario. Aunque cada quien tiene su modo de experimentar estos imperativos todas nos encontramos en ese deseo de cuidar a la comunidad. Mi andar hacia ese mañana libre siempre tiene presente los principios Zapatista o Neo-Zapatistas, por ello, no busco imponer ningún tipo de pensamiento, sino ser parte de un rizoma de quehaceres que no claudican, no se venden, no renuncian.
@@ -400,7 +476,7 @@
   <div class="contenido-seccion">
   <h2>Sa´a Colaborativo</h2>
 
-  <div class="subsection">
+  <div class="subsection" id="sobre-la-agrupacion">
 
     <p>
       El estruendo que provocan dos nubes al chocar estremece las articulaciones de una estructura que se sabe endeble y contradictoria.
@@ -419,6 +495,28 @@
     </p>
 
   </div>
+
+  <div class="subsection" id="miradas-constructivas">
+    <h3>Miradas constructivas</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  <div class="subsection" id="viacrusis-anonimo">
+    <h3>Viacrusis anónimo</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  <div class="subsection" id="los-amalricianos">
+    <h3>Los amalricianos</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  <div class="subsection" id="adultxs-tambien-lloran">
+    <h3>Lxs adultxs también lloran</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  </div>
   </div>
 </section>
 
@@ -431,7 +529,17 @@
   </div>
   <div class="contenido-seccion">
   <h2>Textos</h2>
-  <p>Aquí puedes escribir tus poemas, ideas o ensayos.</p>
+
+  <div class="subsection" id="poemas">
+    <h3>Poemas</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  <div class="subsection" id="critica-de-arte">
+    <h3>Crítica de arte</h3>
+    <p>Próximamente.</p>
+  </div>
+
   </div>
 </section>
 
@@ -445,21 +553,74 @@
   <div class="contenido-seccion">
   <h2>Obra</h2>
 
-  <div class="gallery">
-
-    <div class="video-item">
-      <a href="https://youtu.be/AfTw2jK3Qak" target="_blank">
-        <div class="video-container">
-          <img src="https://img.youtube.com/vi/AfTw2jK3Qak/0.jpg">
-          <div class="overlay">
-            Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"
-          </div>
-        </div>
-      </a>
-      <p>Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"</p>
+  <div class="subsection" id="autoretrato">
+    <h3>Autoretrato</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
     </div>
-
   </div>
+
+  <div class="subsection" id="pinturas-platonicas">
+    <h3>Pinturas platónicas</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="bailar-es-resistir">
+    <h3>Bailar es resistir</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="comer-pensar-amar">
+    <h3>Comer pensar amar</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="sonido-benjamin">
+    <h3>Sonido Benjamín</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="meditaciones-obreras">
+    <h3>Meditaciones obreras</h3>
+    <div class="gallery">
+
+      <div class="video-item">
+        <a href="https://youtu.be/AfTw2jK3Qak" target="_blank">
+          <div class="video-container">
+            <img src="https://img.youtube.com/vi/AfTw2jK3Qak/0.jpg">
+            <div class="overlay">
+              Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"
+            </div>
+          </div>
+        </a>
+        <p>Meditaciones obreras: "Comentario contra el sinsentido pequeño burgués"</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="subsection" id="mojarra-frita-mexicana">
+    <h3>Mojarra frita mexicana</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
+    </div>
+  </div>
+
+  <div class="subsection" id="nada-humano-me-es-ajeno">
+    <h3>Nada humano me es ajeno</h3>
+    <div class="gallery">
+      <p>Próximamente.</p>
+    </div>
+  </div>
+
   </div>
 </section>
 
@@ -472,7 +633,17 @@
   </div>
   <div class="contenido-seccion">
   <h2>Fogón Radio</h2>
-  <p>Espacio de transmisión sonora / radio.</p>
+
+  <div class="subsection" id="escucha-en-vivo">
+    <h3>Escucha en vivo</h3>
+    <p>Próximamente.</p>
+  </div>
+
+  <div class="subsection" id="guiones">
+    <h3>Guiones</h3>
+    <p>Próximamente.</p>
+  </div>
+
   </div>
 </section>
 
@@ -498,9 +669,15 @@
 </footer>
 
   <script>
-    function abrirSeccion(id) {
+    function abrirSeccion(id, subId) {
       document.getElementById(id).classList.add('abierta');
       document.body.style.overflow = 'hidden';
+      if (subId) {
+        setTimeout(function() {
+          var sub = document.getElementById(subId);
+          if (sub) sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
     }
 
     function cerrarSeccion() {
