@@ -43,7 +43,7 @@
     .carrusel {
       position: relative;
       width: 100%;
-      max-width: 700px;
+      max-width: 1200px;
       margin: 10px auto;
       flex: 1;
       min-height: 0;
@@ -261,10 +261,17 @@
 
     /* CONTACTO EN PORTADA */
     .contacto-inicio {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
       padding: 30px 20px;
       background: #000;
       border-top: 1px solid #2a2a2a;
+    }
+
+    .contacto-inicio .contacto-texto {
+      text-align: left;
     }
 
     .contacto-inicio h2 {
@@ -272,7 +279,7 @@
       text-transform: uppercase;
       letter-spacing: 1.5px;
       color: #ccc;
-      margin-bottom: 14px;
+      margin: 0 0 10px 0;
     }
 
     .contacto-inicio p {
@@ -335,12 +342,14 @@
 </nav>
 
 <div class="contacto-inicio">
-  <h2>Contacto</h2>
-  <img src="Portada/portada1.jpg" alt="Contacto" style="max-width:100%; margin-bottom:14px;">
-  <p>Email: saacolaborativo@gmail.com</p>
-  <p>Instagram: @apache.coa</p>
-  <p>Facebook: ApachecoA arte y educación</p>
-  <p>Teléfono: +52 1 55 1112 3609</p>
+  <img src="Portada/portada1.jpg" alt="Contacto" style="max-width:120px; width:100%; height:auto; border-radius:4px;">
+  <div class="contacto-texto">
+    <h2>Contacto</h2>
+    <p>Email: saacolaborativo@gmail.com</p>
+    <p>Instagram: @apache.coa</p>
+    <p>Facebook: ApachecoA arte y educación</p>
+    <p>Teléfono: +52 1 55 1112 3609</p>
+  </div>
 </div>
 </div>
 
