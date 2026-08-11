@@ -826,6 +826,11 @@
 
   <div class="subsection" id="pinturas-platonicas">
     <h3>Pinturas platónicas</h3>
+    <p style="text-align:center; margin-bottom:16px;">
+      <a href="comprimidas/pinturas-platonicas.pdf" target="_blank" style="color:#ddd; text-decoration:underline;">
+        Sobre la obra
+      </a>
+    </p>
     <div class="gallery">
       <img src="comprimidas/pintura1.jpg" alt="Pinturas platónicas 1" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 0)">
       <img src="comprimidas/pintura2.jpg" alt="Pinturas platónicas 2" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 1)">
@@ -835,11 +840,6 @@
       <img src="comprimidas/pintura6.jpg" alt="Pinturas platónicas 6" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 5)">
       <img src="comprimidas/pintura7.jpg" alt="Pinturas platónicas 7" style="width:100%; display:block;" onclick="abrirLightbox(pinturasPlatonicas, 6)">
     </div>
-    <p style="text-align:center; margin-top:16px;">
-      <a href="comprimidas/pinturas-platonicas.pdf" target="_blank" style="color:#ddd; text-decoration:underline;">
-        Sobre la obra
-      </a>
-    </p>
   </div>
 
   <div class="subsection" id="bailar-es-resistir">
@@ -1078,6 +1078,14 @@
       lightboxIndice = (lightboxIndice + 1) % lightboxImagenes.length;
       document.getElementById('lightbox-img').src = lightboxImagenes[lightboxIndice];
     }
+
+    document.addEventListener('keydown', function(e) {
+      var lb = document.getElementById('lightbox');
+      if (!lb.classList.contains('abierto')) return;
+      if (e.key === 'ArrowRight') lightboxSiguiente();
+      if (e.key === 'ArrowLeft') lightboxAnterior();
+      if (e.key === 'Escape') cerrarLightbox();
+    });
     function abrirSeccion(id, subId) {
       var section = document.getElementById(id);
       section.classList.add('abierta');
