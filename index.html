@@ -21,8 +21,6 @@
       flex-direction: column;
       background: #000;
       position: relative;
-      padding-bottom: 70px;
-      box-sizing: border-box;
     }
 
     .pantalla-inicio::before {
@@ -108,12 +106,8 @@
       padding: 16px 10px;
       background: #000;
       border-top: 1px solid #2a2a2a;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      box-sizing: border-box;
-      z-index: 50;
+      position: relative;
+      z-index: 4;
     }
 
     nav a {
@@ -181,7 +175,7 @@
       height: 100vh;
       overflow-y: auto;
       background: #111;
-      padding: 40px 20px 90px 20px;
+      padding: 40px 20px;
       box-sizing: border-box;
       z-index: 10;
     }
@@ -197,7 +191,7 @@
       font-size: 2em;
       color: white;
       cursor: pointer;
-      z-index: 11;
+      z-index: 30;
     }
 
     .contenido-seccion {
@@ -315,7 +309,7 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      padding: 30px 20px 90px 20px;
+      padding: 30px 20px;
       background: #000;
       border-top: 1px solid #2a2a2a;
     }
@@ -343,6 +337,16 @@
     .header-seccion {
       text-align: center;
       margin-bottom: 30px;
+      position: sticky;
+      top: -40px;
+      background: #111;
+      z-index: 15;
+      padding-top: 10px;
+      margin-top: -40px;
+      margin-left: -20px;
+      margin-right: -20px;
+      padding-left: 20px;
+      padding-right: 20px;
     }
 
     .header-seccion h1 {
@@ -448,6 +452,53 @@
   <div class="header-seccion">
     <h1 onclick="cerrarSeccion()">ApachecoA</h1>
     <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
+<nav>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
+</nav>
   </div>
   <div class="contenido-seccion">
   <h2>ApachecoA</h2>
@@ -486,6 +537,53 @@
   <div class="header-seccion">
     <h1 onclick="cerrarSeccion()">ApachecoA</h1>
     <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
+<nav>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
+</nav>
   </div>
   <div class="contenido-seccion">
   <h2>Sa´a Colaborativo</h2>
@@ -540,6 +638,53 @@
   <div class="header-seccion">
     <h1 onclick="cerrarSeccion()">ApachecoA</h1>
     <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
+<nav>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
+</nav>
   </div>
   <div class="contenido-seccion">
   <h2>Textos</h2>
@@ -563,6 +708,53 @@
   <div class="header-seccion">
     <h1 onclick="cerrarSeccion()">ApachecoA</h1>
     <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
+<nav>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
+</nav>
   </div>
   <div class="contenido-seccion">
   <h2>Obra</h2>
@@ -644,6 +836,53 @@
   <div class="header-seccion">
     <h1 onclick="cerrarSeccion()">ApachecoA</h1>
     <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
+<nav>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
+</nav>
   </div>
   <div class="contenido-seccion">
   <h2>Fogón Radio</h2>
@@ -667,6 +906,53 @@
   <div class="header-seccion">
     <h1 onclick="cerrarSeccion()">ApachecoA</h1>
     <p1>Proyecto de experimentación teórica y artística para el buen vivir</p1>
+<nav>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('apachecoa'); return false;">ApachecoA</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('apachecoa', 'semblanza'); return false;">Semblanza</a>
+      <a href="#" onclick="abrirSeccion('apachecoa', 'enunciado'); return false;">Enunciado de artista</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('obra'); return false;">Obra artística</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('obra', 'autoretrato'); return false;">Autoretrato</a>
+      <a href="#" onclick="abrirSeccion('obra', 'pinturas-platonicas'); return false;">Pinturas platónicas</a>
+      <a href="#" onclick="abrirSeccion('obra', 'bailar-es-resistir'); return false;">Bailar es resistir</a>
+      <a href="#" onclick="abrirSeccion('obra', 'comer-pensar-amar'); return false;">Comer pensar amar</a>
+      <a href="#" onclick="abrirSeccion('obra', 'sonido-benjamin'); return false;">Sonido Benjamín</a>
+      <a href="#" onclick="abrirSeccion('obra', 'meditaciones-obreras'); return false;">Meditaciones obreras</a>
+      <a href="#" onclick="abrirSeccion('obra', 'mojarra-frita-mexicana'); return false;">Mojarra frita mexicana</a>
+      <a href="#" onclick="abrirSeccion('obra', 'nada-humano-me-es-ajeno'); return false;">Nada humano me es ajeno</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('textos'); return false;">Textos</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('textos', 'poemas'); return false;">Poemas</a>
+      <a href="#" onclick="abrirSeccion('textos', 'critica-de-arte'); return false;">Crítica de arte</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('saa-colaborativo'); return false;">Sa´a Colaborativo</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'sobre-la-agrupacion'); return false;">Sobre la agrupación artística</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'miradas-constructivas'); return false;">Miradas constructivas</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'viacrusis-anonimo'); return false;">Viacrusis anónimo</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'los-amalricianos'); return false;">Los amalricianos</a>
+      <a href="#" onclick="abrirSeccion('saa-colaborativo', 'adultxs-tambien-lloran'); return false;">Lxs adultxs también lloran</a>
+    </div>
+  </div>
+  <div class="nav-item">
+    <a href="#" onclick="abrirSeccion('fogonradio'); return false;">Fogón Radio</a>
+    <div class="dropdown">
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+    </div>
+  </div>
+  <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
+</nav>
   </div>
   <div class="contenido-seccion">
   <h2>Contacto</h2>
