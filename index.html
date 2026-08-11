@@ -21,6 +21,8 @@
       flex-direction: column;
       background: #000;
       position: relative;
+      padding-bottom: 70px;
+      box-sizing: border-box;
     }
 
     .pantalla-inicio::before {
@@ -106,8 +108,12 @@
       padding: 16px 10px;
       background: #000;
       border-top: 1px solid #2a2a2a;
-      position: relative;
-      z-index: 4;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 50;
     }
 
     nav a {
@@ -175,7 +181,7 @@
       height: 100vh;
       overflow-y: auto;
       background: #111;
-      padding: 40px 20px;
+      padding: 40px 20px 90px 20px;
       box-sizing: border-box;
       z-index: 10;
     }
@@ -200,6 +206,14 @@
     }
 
     /* TEXTO GENERAL JUSTIFICADO */
+    .subsection {
+      display: none;
+    }
+
+    .subsection.activa {
+      display: block;
+    }
+
     .subsection p {
       text-align: justify;
       line-height: 1.7;
@@ -301,7 +315,7 @@
       align-items: center;
       justify-content: center;
       gap: 20px;
-      padding: 30px 20px;
+      padding: 30px 20px 90px 20px;
       background: #000;
       border-top: 1px solid #2a2a2a;
     }
@@ -670,14 +684,18 @@
 
   <script>
     function abrirSeccion(id, subId) {
-      document.getElementById(id).classList.add('abierta');
+      var section = document.getElementById(id);
+      section.classList.add('abierta');
       document.body.style.overflow = 'hidden';
-      if (subId) {
-        setTimeout(function() {
-          var sub = document.getElementById(subId);
-          if (sub) sub.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 50);
+
+      var subs = section.querySelectorAll('.subsection');
+      if (subs.length > 0) {
+        subs.forEach(function(s) { s.classList.remove('activa'); });
+        var objetivo = subId ? document.getElementById(subId) : subs[0];
+        if (objetivo) objetivo.classList.add('activa');
       }
+
+      section.scrollTop = 0;
     }
 
     function cerrarSeccion() {
