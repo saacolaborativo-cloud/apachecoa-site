@@ -19,6 +19,31 @@
       text-align: center;
       padding: 50px 20px;
       background: #000;
+      position: relative;
+    }
+
+    .carrusel {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto 30px;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+    }
+
+    .carrusel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .carrusel img.activa {
+      opacity: 1;
     }
 
     h1 {
@@ -163,6 +188,10 @@
 <body>
 
 <header>
+  <div class="carrusel">
+    <img src="portada/portada1.jpg" class="activa" alt="Portada 1">
+    <img src="portada/portada2.png" alt="Portada 2">
+  </div>
   <h1>ApachecoA</h1>
   <p1>Espacio de experimentación teórica y artística para el buen vivir</p1>
 </header>
@@ -277,6 +306,16 @@
 <footer>
   <p>© 2026 ApachecoA CDMX</p>
 </footer>
+
+  <script>
+    const imagenes = document.querySelectorAll('.carrusel img');
+    let indice = 0;
+    setInterval(() => {
+      imagenes[indice].classList.remove('activa');
+      indice = (indice + 1) % imagenes.length;
+      imagenes[indice].classList.add('activa');
+    }, 4000);
+  </script>
 
 </body>
 </html>
