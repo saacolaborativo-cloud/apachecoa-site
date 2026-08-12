@@ -1146,6 +1146,10 @@
       if (e.key === 'Escape') cerrarLightbox();
     });
     function abrirSeccion(id, subId) {
+      document.querySelectorAll('section.abierta').forEach(function(s) {
+        if (s.id !== id) s.classList.remove('abierta');
+      });
+
       var section = document.getElementById(id);
       section.classList.add('abierta');
       document.body.style.overflow = 'hidden';
