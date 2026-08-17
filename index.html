@@ -449,6 +449,45 @@
     .gallery img {
       cursor: pointer;
     }
+
+    /* GALERIA ESPECIAL MOJARRA FRITA MEXICANA */
+    .galeria-mojarra {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .galeria-mojarra > img {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+
+    .fila-apilada {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .fila-apilada img {
+      width: 100%;
+      display: block;
+      cursor: pointer;
+    }
+
+    .fila-doble {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .fila-doble img {
+      width: 50%;
+      display: block;
+      cursor: pointer;
+      flex: 1;
+    }
   </style>
 </head>
 
@@ -969,9 +1008,60 @@
   </div>
 
   <div class="subsection" id="mojarra-frita-mexicana">
-    <h3>Mojarra frita mexicana</h3>
-    <div class="gallery">
-      <p>Próximamente.</p>
+    <h3>Mojarra frita mexicana <span style="color:#888; font-weight:normal;">(2022-2024)</span></h3>
+
+    <h4 style="text-align:center; text-transform:uppercase; letter-spacing:1px; font-size:0.85em; color:#ccc; margin-bottom:12px;">Fotoperformance</h4>
+
+    <div class="galeria-mojarra">
+
+      <div class="fila-apilada">
+        <img src="mojarra/1.jpg" alt="Mojarra frita mexicana 1" onclick="abrirLightbox(mojarraFritaMexicana, 0)">
+        <img src="mojarra/2.jpg" alt="Mojarra frita mexicana 2" onclick="abrirLightbox(mojarraFritaMexicana, 1)">
+      </div>
+
+      <div class="fila-doble">
+        <img src="mojarra/2.1.png" alt="Mojarra frita mexicana 2.1" onclick="abrirLightbox(mojarraFritaMexicana, 2)">
+        <img src="mojarra/2.2.png" alt="Mojarra frita mexicana 2.2" onclick="abrirLightbox(mojarraFritaMexicana, 3)">
+      </div>
+
+      <img src="mojarra/3.jpg" alt="Mojarra frita mexicana 3" onclick="abrirLightbox(mojarraFritaMexicana, 4)">
+
+      <div class="fila-doble">
+        <img src="mojarra/3.1.png" alt="Mojarra frita mexicana 3.1" onclick="abrirLightbox(mojarraFritaMexicana, 5)">
+        <img src="mojarra/3.2.png" alt="Mojarra frita mexicana 3.2" onclick="abrirLightbox(mojarraFritaMexicana, 6)">
+      </div>
+
+      <img src="mojarra/4.jpg" alt="Mojarra frita mexicana 4" onclick="abrirLightbox(mojarraFritaMexicana, 7)">
+
+      <div class="fila-doble">
+        <img src="mojarra/4.1.png" alt="Mojarra frita mexicana 4.1" onclick="abrirLightbox(mojarraFritaMexicana, 8)">
+        <img src="mojarra/4.2.png" alt="Mojarra frita mexicana 4.2" onclick="abrirLightbox(mojarraFritaMexicana, 9)">
+      </div>
+
+      <img src="mojarra/5.jpg" alt="Mojarra frita mexicana 5" onclick="abrirLightbox(mojarraFritaMexicana, 10)">
+
+      <div class="fila-doble">
+        <img src="mojarra/5.1.png" alt="Mojarra frita mexicana 5.1" onclick="abrirLightbox(mojarraFritaMexicana, 11)">
+        <img src="mojarra/5.2.png" alt="Mojarra frita mexicana 5.2" onclick="abrirLightbox(mojarraFritaMexicana, 12)">
+      </div>
+
+      <img src="mojarra/6.jpg" alt="Mojarra frita mexicana 6" onclick="abrirLightbox(mojarraFritaMexicana, 13)">
+
+      <div class="fila-doble">
+        <img src="mojarra/6.1.png" alt="Mojarra frita mexicana 6.1" onclick="abrirLightbox(mojarraFritaMexicana, 14)">
+        <img src="mojarra/6.2.png" alt="Mojarra frita mexicana 6.2" onclick="abrirLightbox(mojarraFritaMexicana, 15)">
+      </div>
+
+      <div class="fila-doble">
+        <img src="mojarra/7.jpg" alt="Mojarra frita mexicana 7" onclick="abrirLightbox(mojarraFritaMexicana, 16)">
+        <img src="mojarra/7.1.png" alt="Mojarra frita mexicana 7.1" onclick="abrirLightbox(mojarraFritaMexicana, 17)">
+      </div>
+
+      <div class="fila-apilada">
+        <img src="mojarra/8.jpg" alt="Mojarra frita mexicana 8" onclick="abrirLightbox(mojarraFritaMexicana, 18)">
+        <img src="mojarra/9.jpg" alt="Mojarra frita mexicana 9" onclick="abrirLightbox(mojarraFritaMexicana, 19)">
+      </div>
+
     </div>
   </div>
 
@@ -1205,6 +1295,29 @@
       'sonido%20benjamin/6.jpg',
       'sonido%20benjamin/7.jpg',
       'sonido%20benjamin/8.jpg'
+    ];
+
+    var mojarraFritaMexicana = [
+      'mojarra/1.jpg',
+      'mojarra/2.jpg',
+      'mojarra/2.1.png',
+      'mojarra/2.2.png',
+      'mojarra/3.jpg',
+      'mojarra/3.1.png',
+      'mojarra/3.2.png',
+      'mojarra/4.jpg',
+      'mojarra/4.1.png',
+      'mojarra/4.2.png',
+      'mojarra/5.jpg',
+      'mojarra/5.1.png',
+      'mojarra/5.2.png',
+      'mojarra/6.jpg',
+      'mojarra/6.1.png',
+      'mojarra/6.2.png',
+      'mojarra/7.jpg',
+      'mojarra/7.1.png',
+      'mojarra/8.jpg',
+      'mojarra/9.jpg'
     ];
 
     var lightboxImagenes = [];
