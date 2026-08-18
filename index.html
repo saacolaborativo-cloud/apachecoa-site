@@ -546,6 +546,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -612,6 +613,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -697,6 +699,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -866,6 +869,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -936,6 +940,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -1216,6 +1221,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -1226,7 +1232,31 @@
 
   <div class="subsection" id="escucha-en-vivo">
     <h3>Escucha en vivo</h3>
-    <p>Próximamente.</p>
+
+    <h4 style="text-align:center; text-transform:uppercase; letter-spacing:1px; font-size:1em; color:#ccc; margin-bottom:4px;">El programa más aburrido de la radio</h4>
+
+    <p style="text-align:center; text-transform:uppercase; letter-spacing:1px; font-size:0.75em; color:#ccc; margin-top:0; margin-bottom:20px;">Transmisión en vivo lunes 20:00-22:00hrs<br>Retransmisión jueves 11:00-13:00hrs</p>
+
+    <h4 style="text-align:center; text-transform:uppercase; letter-spacing:1px; font-size:0.85em; color:#ccc; margin-bottom:12px;">Descripción del canal</h4>
+    <p>Programa donde se busca articular la teoría y la praxis para transformar el mundo empezando por nuestras comunidades.</p>
+    <p>Esperamos que el canal sirva como espacio de encuentro para discutir ideas, preocupaciones y propuestas para mejorar nuestras vidas.</p>
+
+    <h4 style="text-align:center; text-transform:uppercase; letter-spacing:1px; font-size:0.85em; color:#ccc; margin-bottom:12px;">Sobre nosotrxs</h4>
+    <p>Nuestro programa trabaja temas como el arte, la filosofía, intereses académicos y preocupaciones sociales mediante el diálogo entre Vikco Martinez y ApachecoA. Acompañamos la conversación con canciones de varios géneros cuya línea de encuentro la determina el tema que se trate en cada programa. Además, entrevistamos a personas que se desenvuelven en entornos académicos con el objetivo de integrar sus investigaciones en la mejora de nuestras condiciones de vida.</p>
+
+    <p style="text-align:center; text-transform:uppercase; letter-spacing:1px; font-weight:600; margin:24px 0;">¡Acércate al fogón!</p>
+
+    <div style="max-width:500px; margin:auto;">
+      <iframe src="https://saacolaborativo.radiostream321.com/" style="width:100%; height:200px; border:0;" allow="autoplay"></iframe>
+    </div>
+
+    <div style="max-width:500px; margin:20px auto 0 auto; text-align:center;">
+      <button onclick="toggleListasReproduccion()" style="font-family:'IBM Plex Mono', monospace; font-size:0.75em; text-transform:uppercase; letter-spacing:1.5px; color:#ddd; background:transparent; border:1px solid #2a2a2a; padding:10px 20px; cursor:pointer;">Listas de reproducción</button>
+      <div id="listas-reproduccion" style="display:none; margin-top:16px; text-align:left;">
+        <p style="margin:8px 0;"><a href="https://www.youtube.com/playlist?list=PLBo6PmE0be-gFe0BGQRm9u0YdIvh1ojtk" target="_blank" style="color:#ddd; text-decoration:underline;">1 de junio del 2026</a></p>
+        <p style="margin:8px 0;"><a href="https://youtube.com/playlist?list=PLBo6PmE0be-j0S2RkHFlwdOoTG21mFoJp" target="_blank" style="color:#ddd; text-decoration:underline;">8 de junio del 2026</a></p>
+      </div>
+    </div>
   </div>
 
   <div class="subsection" id="guiones">
@@ -1286,6 +1316,7 @@
     <div class="dropdown">
       <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); return false;">Escucha en vivo</a>
       <a href="#" onclick="abrirSeccion('fogonradio', 'guiones'); return false;">Guiones</a>
+      <a href="#" onclick="abrirSeccion('fogonradio', 'escucha-en-vivo'); mostrarListasReproduccion(); return false;">Listas de reproducción</a>
     </div>
   </div>
   <a href="#" onclick="abrirSeccion('contacto'); return false;">Contacto</a>
@@ -1480,6 +1511,21 @@
       }
 
       section.scrollTop = 0;
+    }
+
+    function toggleListasReproduccion() {
+      var div = document.getElementById('listas-reproduccion');
+      div.style.display = (div.style.display === 'none' || !div.style.display) ? 'block' : 'none';
+    }
+
+    function mostrarListasReproduccion() {
+      setTimeout(function() {
+        var div = document.getElementById('listas-reproduccion');
+        if (div) {
+          div.style.display = 'block';
+          div.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
     }
 
     function cerrarSeccion() {
